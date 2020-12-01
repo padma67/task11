@@ -10,26 +10,53 @@ var text2="un bold";
  $(document).ready(function(){
        $("#I").click(
         function(){
-          var selectedtext = document.getSelection().toString();
-          console.log(selectedtext);
-          var replaceText = "<span style='font-style:italic' >"+selectedtext+"</span>";
-         
-          console.log(replaceText);
-          var gethtmlText = $("p").text();
-          var replcedtext = gethtmlText.replace(selectedtext ,  replaceText);
-         $("p").html(replcedtext)
-});
+
+          if(style==="normal"){
+          var selectedtext = document.getSelection().toString();     
+            if(selectedtext !== ""){
+              var replaceText = "<span style='font-style:italic' >"+selectedtext+"</span>";
+              var gethtmlText = $("p").text();
+              var replcedtext = gethtmlText.replace(selectedtext , replaceText );
+              $("p").html(replcedtext);
+              style="italic";
+                                  }}
+
+         else{
+              var selectedtext = document.getSelection().toString();
+                if(selectedtext !== ""){
+                    var replaceText = "<span style='font-style:normal' >"+selectedtext+"</span>";
+                    var gethtmlText = $("p").text();
+                    var replcedtext = gethtmlText.replace(selectedtext , replaceText );
+                    $("p").html(replcedtext);
+                    style="normal"
+                                      }}
+
+      });
 
      $("#B").click(
         function(){
-          var selectedtext = document.getSelection().toString();
-          var replaceText = "<span style='font-weight:bold' >"+selectedtext+"</span>";
-          var gethtmlText = $("p").text();
-          var replcedtext = gethtmlText.replace(selectedtext ,  replaceText);
-         $("p").html(replcedtext)
+           if(weight==="normal"){
+          var selectedtext = document.getSelection().toString();     
+            if(selectedtext !== ""){
+              var replaceText = "<span style='font-weight:bold' >"+selectedtext+"</span>";
+              var gethtmlText = $("p").text();
+              var replcedtext = gethtmlText.replace(selectedtext , replaceText );
+              $("p").html(replcedtext);
+              weight="bold";
+                                  }}
+
+         else{
+              var selectedtext = document.getSelection().toString();
+                if(selectedtext !== ""){
+                    var replaceText = "<span style='font-weight:normal' >"+selectedtext+"</span>";
+                    var gethtmlText = $("p").text();
+                    var replcedtext = gethtmlText.replace(selectedtext , replaceText );
+                    $("p").html(replcedtext);
+                    weight="normal"
+                                      }}
 });
  });
-
+    
 
 </script>
 </head>
