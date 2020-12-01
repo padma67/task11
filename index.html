@@ -5,25 +5,38 @@
 <script>
 var style ="normal";
 var weight="normal";
-$(document).ready(function(){
-  $("#I").click(function(){
-   style === "italic" ? style="normal" : style="italic";
-   $("p>span").css("font-style",style);
-  });
-  $("#B").click(function(){
-    weight === "bold" ? weight="normal" : weight="bold";
-   $("p>span").css("font-weight",weight);
+var text2="un bold";
+
+ $(document).ready(function(){
+       $("#I").click(
+        function(){
+          var selectedtext = document.getSelection().toString();
+          console.log(selectedtext);
+          var replaceText = "<span style='font-style:italic' >"+selectedtext+"</span>";
+         
+          console.log(replaceText);
+          var gethtmlText = $("p").text();
+          var replcedtext = gethtmlText.replace(selectedtext ,  replaceText);
+         $("p").html(replcedtext)
+});
+
+     $("#B").click(
+        function(){
+          var selectedtext = document.getSelection().toString();
+          var replaceText = "<span style='font-weight:bold' >"+selectedtext+"</span>";
+          var gethtmlText = $("p").text();
+          var replcedtext = gethtmlText.replace(selectedtext ,  replaceText);
+         $("p").html(replcedtext)
+});
  });
 
- });
 
 </script>
 </head>
 <body>
 <div>
 <p  ><span>India</span> is the largest country in the world </p>
-<p>World's Largest Wall is in <span>China</span></p>
-<p><span>Vatican City </span>is the smallest country in the world</p>
+
 <button id="I"> Italic  </button>
 <button id="B"> Bold</button>
 </div>
